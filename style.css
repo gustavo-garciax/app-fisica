@@ -1,0 +1,294 @@
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@600;900&family=Space+Grotesk:wght@400;500&display=swap");
+
+@property --angulo {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+:root {
+  --fundo: #05060d;
+  --texto: #eef2ff;
+  --suave: #9aa4c7;
+  --roxo: #7c5cff;
+  --ciano: #00e5ff;
+  --rosa: #ff3d81;
+  --ouro: #ffd23f;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+
+::selection { background: var(--rosa); color: #fff; }
+
+body {
+  min-height: 100vh;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Aurora: manchas de luz que respiram no fundo */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -25%;
+  z-index: -3;
+  background:
+    radial-gradient(40% 40% at 20% 25%, rgba(124, 92, 255, .6), transparent 70%),
+    radial-gradient(35% 35% at 80% 30%, rgba(0, 229, 255, .38), transparent 70%),
+    radial-gradient(45% 45% at 60% 90%, rgba(255, 61, 129, .42), transparent 70%);
+  filter: blur(70px);
+  animation: aurora 16s ease-in-out infinite alternate;
+}
+
+/* Chão em perspectiva que corre para o horizonte */
+body::after {
+  content: "";
+  position: fixed;
+  left: -50%;
+  right: -50%;
+  bottom: 0;
+  height: 55vh;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(124, 92, 255, .55) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 92, 255, .55) 1px, transparent 1px);
+  background-size: 64px 64px;
+  transform: perspective(520px) rotateX(63deg);
+  transform-origin: bottom;
+  mask-image: linear-gradient(to top, #000 5%, transparent 85%);
+  animation: chao 2.4s linear infinite;
+}
+
+.home {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  gap: clamp(2rem, 6vw, 4.5rem);
+  padding: clamp(1.5rem, 5vw, 4rem) 1.25rem;
+}
+
+/* Estrelas piscando */
+.home::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1.5px 1.5px at 20px 30px, #fff, transparent),
+    radial-gradient(1px 1px at 90px 120px, #cfd8ff, transparent),
+    radial-gradient(1.5px 1.5px at 160px 60px, #fff, transparent),
+    radial-gradient(1px 1px at 230px 170px, #ffd9ec, transparent),
+    radial-gradient(1px 1px at 60px 210px, #fff, transparent);
+  background-size: 260px 260px;
+  animation: piscar 4s ease-in-out infinite alternate;
+}
+
+/* Cabeçalho */
+.home__header { text-align: center; }
+
+.home__title {
+  font-family: "Unbounded", sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.6rem, 10vw, 7.5rem);
+  line-height: .95;
+  letter-spacing: -.05em;
+  background: linear-gradient(100deg, var(--ciano), var(--roxo), var(--rosa), var(--ouro), var(--ciano));
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 28px rgba(124, 92, 255, .55));
+  animation:
+    brilho 7s linear infinite,
+    abertura 1.4s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.home__subtitle {
+  max-width: 36ch;
+  margin: 1.4rem auto 0;
+  font-size: clamp(1rem, 2.4vw, 1.3rem);
+  color: var(--suave);
+}
+
+/* Cartões */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+  width: min(1100px, 100%);
+  margin-inline: auto;
+  perspective: 1400px;
+}
+
+.card {
+  --cor: var(--roxo);
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .7rem;
+  padding: 1.8rem;
+  border-radius: 28px;
+  color: inherit;
+  text-decoration: none;
+  background: linear-gradient(160deg, rgba(255, 255, 255, .11), rgba(255, 255, 255, .02));
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  box-shadow: 0 20px 60px -30px #000;
+  transition: transform .5s cubic-bezier(.2, .8, .2, 1), box-shadow .5s, opacity .4s, filter .4s;
+  animation: subida .9s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.card:nth-child(1) { animation-delay: .25s; }
+.card:nth-child(2) { animation-delay: .4s; }
+.card:nth-child(3) { animation-delay: .55s; }
+
+.card--inclinado { --cor: var(--rosa); }
+.card--queda     { --cor: var(--ciano); }
+.card--circuito  { --cor: var(--ouro); }
+
+/* Borda de luz girando */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--angulo), transparent 0 55%, var(--cor) 80%, #fff 90%, transparent 100%);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+  animation: giro 5s linear infinite;
+}
+
+/* Brilho interno que acende no hover */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% -10%, color-mix(in srgb, var(--cor) 50%, transparent), transparent 62%);
+  opacity: .3;
+  transition: opacity .5s;
+  pointer-events: none;
+}
+
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-16px) rotateX(7deg) scale(1.04);
+  box-shadow: 0 40px 90px -25px var(--cor);
+}
+.card:nth-child(1):hover { transform: translateY(-16px) rotateX(7deg) rotateY(9deg) scale(1.04); }
+.card:nth-child(3):hover { transform: translateY(-16px) rotateX(7deg) rotateY(-9deg) scale(1.04); }
+.card:hover::after,
+.card:focus-visible::after { opacity: 1; }
+
+.card:focus-visible { outline: 3px solid var(--cor); outline-offset: 6px; }
+
+/* Os outros cartões escurecem quando você escolhe um */
+.cards:hover .card:not(:hover) {
+  opacity: .5;
+  filter: saturate(.5) blur(1.5px);
+}
+
+.card__icon {
+  width: 150px;
+  height: auto;
+  color: var(--cor);
+  overflow: visible;
+  filter: drop-shadow(0 0 14px var(--cor));
+  transition: transform .5s cubic-bezier(.2, .8, .2, 1);
+}
+.card:hover .card__icon { transform: scale(1.18) rotate(-4deg); }
+
+.card__title {
+  font-family: "Unbounded", sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 1.15;
+  letter-spacing: -.02em;
+}
+
+.card__text {
+  color: var(--suave);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.card__formula {
+  margin-top: auto;
+  padding: .45rem 1rem;
+  border-radius: 999px;
+  font-weight: 500;
+  color: var(--cor);
+  background: color-mix(in srgb, var(--cor) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cor) 55%, transparent);
+  text-shadow: 0 0 12px var(--cor);
+}
+
+/* Ícones vivos: cada um mostra a sua lei */
+.card--inclinado .card__icon rect {
+  fill: currentColor;
+  animation: deslizar 2.6s cubic-bezier(.5, 0, 1, .6) infinite;
+}
+.card--queda .card__icon circle:nth-of-type(1) {
+  animation: cair 2s cubic-bezier(.55, 0, 1, .45) infinite;
+}
+.card--queda .card__icon circle:nth-of-type(2) { animation: fantasma 2s ease-in-out infinite; }
+.card--queda .card__icon circle:nth-of-type(3) { animation: fantasma 2s ease-in-out .4s infinite; }
+.card--circuito .card__icon path:first-of-type {
+  stroke-dasharray: 5 7;
+  animation: fluir .8s linear infinite;
+}
+.card--circuito .card__icon rect { fill: var(--fundo); }
+
+/* Animações */
+@keyframes aurora {
+  from { transform: translate3d(-4%, -3%, 0) rotate(0deg) scale(1); }
+  to   { transform: translate3d(5%, 4%, 0) rotate(14deg) scale(1.18); }
+}
+@keyframes chao   { to { background-position: 0 64px; } }
+@keyframes piscar { from { opacity: .35; } to { opacity: 1; } }
+@keyframes brilho { to { background-position: 300% 0; } }
+@keyframes abertura {
+  from { letter-spacing: .25em; opacity: 0; filter: blur(14px); }
+}
+@keyframes subida {
+  from { opacity: 0; transform: translateY(70px) rotateX(35deg); }
+}
+@keyframes giro { to { --angulo: 360deg; } }
+@keyframes deslizar {
+  0%   { translate: 0 0; opacity: 1; }
+  75%  { translate: 30px 15px; opacity: 1; }
+  100% { translate: 34px 17px; opacity: 0; }
+}
+@keyframes cair {
+  0%   { translate: 0 0; opacity: 1; }
+  80%  { translate: 0 25px; opacity: 1; }
+  100% { translate: 0 25px; opacity: 0; }
+}
+@keyframes fantasma { 50% { opacity: 0; } }
+@keyframes fluir    { to { stroke-dashoffset: -24; } }
+
+/* Telas de toque não têm hover */
+@media (hover: none) {
+  .card:hover, .card:nth-child(n):hover { transform: none; }
+  .cards:hover .card:not(:hover) { opacity: 1; filter: none; }
+}
+
+/* Quem prefere menos movimento recebe a página parada */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
