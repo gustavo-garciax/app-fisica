@@ -1,52 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leis de fisica</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <main class="home">
-  <header class="home__header">
-    <h1 class="home__title">Física em 3D</h1>
-    <p class="home__subtitle">Escolha um tema, mude os valores e veja a lei acontecendo.</p>
-  </header>
+  <main class="home">
+    <header class="home__header">
+      <h1 class="home__title">Física em 3D</h1>
+      <p class="home__subtitle">Escolha um tema, mude os valores e veja a lei acontecendo.</p>
+    </header>
 
-  <section class="cards">
-    <a class="card card--inclinado" href="#inclinado">
-      <svg class="card__icon" viewBox="0 0 64 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round">
-        <path d="M4 36H60L4 8Z"/>
-        <rect transform="translate(20 16) rotate(26.6)" x="-5" y="-10" width="10" height="10" fill="currentColor"/>
-      </svg>
-      <h2 class="card__title">Plano inclinado</h2>
-      <p class="card__text">Peso, normal e atrito em um bloco que desliza.</p>
-      <div class="card__formula">a = g (sen θ − μ cos θ)</div>
-    </a>
+    <section class="cards">
+      <a class="card card--inclinado" href="plano-inclinado/plano-inclinado.html">
+        <svg class="card__icon" viewBox="0 0 64 40" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linejoin="round">
+          <path d="M4 36H60L4 8Z" />
+          <rect transform="translate(20 16) rotate(26.6)" x="-5" y="-10" width="10" height="10" fill="currentColor" />
+        </svg>
+        <h2 class="card__title">Plano inclinado</h2>
+        <p class="card__text">Peso, normal e atrito em um bloco que desliza.</p>
+        <div class="card__formula">a = g (sen θ − μ cos θ)</div>
+      </a>
 
-    <a class="card card--queda" href="#queda">
-      <svg class="card__icon" viewBox="0 0 64 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-        <circle cx="32" cy="7" r="5" fill="currentColor"/>
-        <circle cx="32" cy="16" r="3" opacity=".5"/>
-        <circle cx="32" cy="27" r="3" opacity=".3"/>
-        <path d="M10 37H54"/>
-      </svg>
-      <h2 class="card__title">Queda livre</h2>
-      <p class="card__text">Corpos leves e pesados caindo juntos.</p>
-      <div class="card__formula">h = ½ g t²</div>
-    </a>
+      <a class="card card--queda" href="queda-livre/queda-livre.html">
+        <svg class="card__icon" viewBox="0 0 64 40" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round">
+          <circle cx="32" cy="7" r="5" fill="currentColor" />
+          <circle cx="32" cy="16" r="3" opacity=".5" />
+          <circle cx="32" cy="27" r="3" opacity=".3" />
+          <path d="M10 37H54" />
+        </svg>
+        <h2 class="card__title">Queda livre</h2>
+        <p class="card__text">Corpos leves e pesados caindo juntos.</p>
+        <div class="card__formula">h = ½ g t²</div>
+      </a>
 
-    <a class="card card--circuito" href="#circuito">
-      <svg class="card__icon" viewBox="0 0 64 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round">
-        <path d="M8 8H56V32H8Z"/>
-        <rect x="26" y="4" width="14" height="8" fill="white"/>
-        <path d="M3 16H13M1 22H15" stroke-linecap="round"/>
-      </svg>
-      <h2 class="card__title">Circuito elétrico</h2>
-      <p class="card__text">Tensão, resistência e corrente em série ou paralelo.</p>
-      <div class="card__formula">V = R · I</div>
-    </a>
-  </section>
-</main>
+      <a class="card card--projetil" href="lancamentos-de-projeteis/lancamentos-de-projeteis.html">
+        <svg class="card__icon" viewBox="0 0 64 40" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round">
+          <path d="M6 34Q32 -14 58 34" />
+          <circle cx="32" cy="10" r="4" fill="currentColor" />
+          <path d="M4 37H60" />
+        </svg>
+        <h2 class="card__title">Lançamento de projéteis</h2>
+        <p class="card__text">Velocidade, ângulo e gravidade desenhando uma parábola.</p>
+        <div class="card__formula">R = v₀² sen(2θ) / g</div>
+      </a>
+
+      <a class="card card--hooke" href="lei-de-hooke/lei-de-hooke.html">
+        <svg class="card__icon" viewBox="0 0 64 40" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 3H48" />
+          <path class="card__spring" d="M32 3V8L24 11L40 16L24 21L40 26L32 29V32" />
+          <rect class="card__mass" x="24" y="32" width="16" height="7" fill="currentColor" />
+        </svg>
+        <h2 class="card__title">Lei de Hooke</h2>
+        <p class="card__text">A força da mola e a oscilação de uma massa.</p>
+        <div class="card__formula">F = −k · x</div>
+      </a>
+
+    </section>
+  </main>
 </body>
+
 </html>

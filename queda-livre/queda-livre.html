@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Queda livre</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap">
+    <link rel="stylesheet" href="queda-livre.css">
+</head>
+
+<body>
+    <div class="pag">
+        <a class="voltar" href="../inde.html">Voltar ao painel</a>
+        <header class="topo">
+            <h1>Queda livre</h1>
+            <p>Mude a altura e a gravidade e veja que corpos leves e pesados caem juntos.</p>
+        </header>
+        <main class="grade">
+            <div class="cartao palco" id="stage">
+                <div class="dica">Arraste para girar, role para aproximar.</div>
+            </div>
+            <aside class="cartao lado">
+                <div id="ctls"></div>
+                <div class="chips" id="chips" role="group" aria-label="Gravidade de cada astro"></div>
+                <label class="chk"><input type="checkbox" id="marcas" checked> Mostrar marcas de tempo</label>
+                <div class="fm">h = ½·g·t² &nbsp; v = g·t<br>t = √(2h/g) &nbsp; v² = 2·g·h</div>
+                <dl id="vals"></dl>
+                <p class="live" id="live"></p>
+                <canvas class="graf" id="graf" aria-label="Gráfico da velocidade em função do tempo"></canvas>
+                <ul class="leg">
+                    <li><i style="background:#c2410c"></i>Bola pesada</li>
+                    <li><i style="background:#0d9488"></i>Bola leve</li>
+                    <li><i style="background:#2563eb"></i>Velocidade (a seta cresce durante a queda)</li>
+                    <li><i style="background:#8a94a0"></i>Marcas em intervalos de tempo iguais</li>
+                </ul>
+                <div class="bt"><button id="pp">Pausar</button><button id="rs">Reiniciar</button></div>
+            </aside>
+        </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="queda-livre.js"></script>
+</body>
+
+</html>

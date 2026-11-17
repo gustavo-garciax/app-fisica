@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Lançamento de projéteis</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap">
+    <link rel="stylesheet" href="lancamentos-de-projeteis.css">
+</head>
+
+<body>
+    <div class="pag">
+        <a class="voltar" href="../inde.html">Voltar ao painel</a>
+        <header class="topo">
+            <h1>Lançamento de projéteis</h1>
+            <p>Mude a velocidade, o ângulo e a altura e veja a trajetória em parábola.</p>
+        </header>
+        <main class="grade">
+            <div class="cartao palco" id="stage">
+                <div class="dica">Arraste para girar, role para aproximar.</div>
+            </div>
+            <aside class="cartao lado">
+                <div id="ctls"></div>
+                <div class="chips" id="chips" role="group" aria-label="Gravidade de cada astro"></div>
+                <label class="chk"><input type="checkbox" id="comp" checked> Mostrar componentes da velocidade</label>
+                <label class="chk"><input type="checkbox" id="marcas" checked> Mostrar marcas de tempo</label>
+                <label class="chk"><input type="checkbox" id="compl"> Comparar com o ângulo complementar</label>
+                <div class="fm">v<sub>x</sub> = v₀·cos θ &nbsp; v<sub>y</sub> = v₀·sen θ<br>x = v<sub>x</sub>·t &nbsp; y
+                    = h₀ + v<sub>y</sub>·t − ½·g·t²<br>R = v₀²·sen(2θ) / g &nbsp; (com h₀ = 0)</div>
+                <dl id="vals"></dl>
+                <p class="nota" id="nota"></p>
+                <p class="live" id="live"></p>
+                <canvas class="graf" id="graf"
+                    aria-label="Gráfico das componentes da velocidade em função do tempo"></canvas>
+                <ul class="leg">
+                    <li><i style="background:#c2410c"></i>Trajetória</li>
+                    <li><i style="background:#2563eb"></i>Velocidade (seta azul)</li>
+                    <li><i style="background:#64748b"></i>Componentes vx e vy</li>
+                    <li><i style="background:#0d9488"></i>Ponto mais alto</li>
+                    <li><i style="background:#8a94a0"></i>Marcas de tempo e ângulo complementar</li>
+                </ul>
+                <div class="bt"><button id="pp">Pausar</button><button id="rs">Reiniciar</button></div>
+            </aside>
+        </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="lancamentos-de-projeteis.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Lei de Hooke</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap">
+    <link rel="stylesheet" href="lei-de-hooke.css">
+</head>
+
+<body>
+    <div class="pag">
+        <a class="voltar" href="../inde.html">Voltar ao painel</a>
+        <header class="topo">
+            <h1>Lei de Hooke</h1>
+            <p>Mude a rigidez da mola e a massa e veja a força elástica e a oscilação.</p>
+        </header>
+        <main class="grade">
+            <div class="cartao palco" id="stage">
+                <div class="dica">Arraste para girar, role para aproximar.</div>
+            </div>
+            <aside class="cartao lado">
+                <div class="chips" id="modos" role="group" aria-label="Modo da simulação"></div>
+                <div id="ctls"></div>
+                <div class="chips" id="chips" role="group" aria-label="Gravidade de cada astro"></div>
+                <label class="chk"><input type="checkbox" id="forcas" checked> Mostrar forças</label>
+                <div class="fm">F = −k·x &nbsp; (lei de Hooke)<br>x<sub>eq</sub> = m·g / k &nbsp; T = 2π·√(m /
+                    k)<br>E<sub>el</sub> = ½·k·x²</div>
+                <dl id="vals"></dl>
+                <p class="nota" id="nota"></p>
+                <p class="live" id="live"></p>
+                <canvas class="graf" id="graf" aria-label="Gráfico da força elástica em função do alongamento"></canvas>
+                <ul class="leg">
+                    <li><i style="background:#d97706"></i>Peso (m·g)</li>
+                    <li><i style="background:#dc2626"></i>Força elástica (k·x)</li>
+                    <li><i style="background:#2563eb"></i>Força resultante</li>
+                    <li><i style="background:#c2410c"></i>Mola</li>
+                    <li><i style="background:#8a94a0"></i>Linha cinza: comprimento natural da mola</li>
+                    <li><i style="background:#0d9488"></i>Linha verde-água: posição de equilíbrio</li>
+                </ul>
+                <div class="bt"><button id="pp">Pausar</button><button id="rs">Reiniciar</button></div>
+            </aside>
+        </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="lei-de-hooke.js"></script>
+</body>
+
+</html>

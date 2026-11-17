@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Plano inclinado</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap">
+    <link rel="stylesheet" href="plano-inclinado.css">
+</head>
+
+<body>
+    <!doctype html>
+    <html lang="pt-BR">
+
+    <body>
+        <div class="pag">
+            <a class="voltar" href="../inde.html">Voltar ao painel</a>
+            <header class="topo">
+                <h1>Plano inclinado</h1>
+                <p>Mude o ângulo, o atrito e a massa e veja as forças agindo no bloco.</p>
+            </header>
+            <main class="grade">
+                <div class="cartao palco" id="stage">
+                    <div class="dica">Arraste para girar, role para aproximar.</div>
+                </div>
+                <aside class="cartao lado">
+                    <div id="ctls"></div>
+                    <label class="chk"><input type="checkbox" id="comp" checked> Mostrar componentes do peso</label>
+                    <div class="fm">Pₓ = m·g·sen θ &nbsp; N = m·g·cos θ<br>f = μ·N &nbsp; a = g(sen θ − μ cos θ)</div>
+                    <dl id="vals"></dl>
+                    <p class="live" id="live"></p>
+                    <ul class="leg">
+                        <li><i style="background:#d97706"></i>Peso (m·g)</li>
+                        <li><i style="background:#0d9488"></i>Normal (N)</li>
+                        <li><i style="background:#dc2626"></i>Atrito (f)</li>
+                        <li><i style="background:#64748b"></i>Componentes do peso</li>
+                    </ul>
+                    <div class="bt"><button id="pp">Pausar</button><button id="rs">Reiniciar</button></div>
+                </aside>
+            </main>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        <script src="plano-inclinado.js"></script>
+    </body>
+
+    </html>
+</body>
+
+</html>
